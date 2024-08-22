@@ -80,22 +80,34 @@ function randomCpuNumber() {
 
 function isEven(number) {
     if (number % 2 === 0) {
-        console.log('il numero è pari')
+        console.log('il numero è pari');
+        return true;
     } else {
-        console.log('il numero è dispari')
+        console.log('il numero è dispari');
+        return false;
     }
 }
+
+
 const cpuNumber = randomCpuNumber();
-console.log(`Il numero casuale generato è: ${cpuNumber}`);
+console.log(`la CPU sceglie: ${cpuNumber}`);
 
 let playerNumber = parseInt(prompt('dimmi un numero da 1 a 5', parseInt(4)))
 console.log(`Il numero che hai scelto è: ${playerNumber}`);
 
+let playerChoise = prompt('Scegli "pari" o "dispari"', 'pari').toLowerCase();
+console.log(`Hai scelto: ${playerChoise}`);
+
 let sum = cpuNumber + playerNumber;
 console.log(`La somma dei numeri è: ${sum}`)
 
-isEven(sum);
+let sumIsEven = isEven(sum);
 
+if ((playerChoise === 'pari' && sumIsEven) || (playerChoise === 'dispari' && !sumIsEven)) {
+    console.log('Complimenti! Hai vinto!');
+} else {
+    console.log('Peccato! La CPU ha vinto.');
+}
 
 
 
